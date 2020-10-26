@@ -1,0 +1,31 @@
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "";
+$dbname = "student_marks";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+// sql to create table
+$sql = "CREATE TABLE student (
+Registration_number INT PRIMARY KEY,
+Maths INT NOT NUL
+Biology INT NOT NULL,
+Physics INT NOT NULL,
+SOCIAL INT NOT NULL)";
+
+if ($conn->query($sql) === TRUE) {
+  echo "Table MyGuests created successfully";
+} else {
+  echo "Error creating table: " . $conn->error;
+}
+
+$conn->close();
+?>
+
+
